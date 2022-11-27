@@ -1,0 +1,50 @@
+body{
+  font-family: "Avenir Next", sans-serif;
+  background: $bcg;
+}
+
+.container{
+  max-width: 90%;
+  margin: 3rem auto 0;
+}
+.grid {
+  max-width: 50rem;
+  display: grid;
+  margin: 0 auto;
+  padding: 0;
+  grid-gap: 10px;
+  grid-template-columns: repeat(1, 1fr);
+  >*{
+    background: $number;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 10rem;
+    font-weight: bold;
+    color:white;
+    i{
+      transform: rotate(-10deg);
+      transform-origin: center;
+      display: inline-block;
+      position: relative;
+      top: -0.07rem;
+    }
+  }
+}
+
+
+.buzz{
+  background: $buzz;
+}
+.fizz{
+  background: $fizz;
+}
+.fizzbuzz{
+  background: $fizzbuzz;
+}
+@media screen and (min-width: 850px){
+  .grid {
+    grid-gap: 10px;
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
