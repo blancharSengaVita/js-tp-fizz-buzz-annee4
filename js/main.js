@@ -1,13 +1,13 @@
 // const list = document.getElementById('fizzbuzz')
 
 const fizzbuzz = {
-  variables() {
+  initConst() {
     this.ol = document.createElement('ol');
     this.currentItems = 1;
     this.maxItems = 101;
   },
 
-  olCreation() {
+  createList() {
     document.body.appendChild(this.ol);
     this.ol.id = 'fizzbuzz';
     this.ol.className = 'grid';
@@ -23,8 +23,7 @@ const fizzbuzz = {
   },
 
   fizzbuzz() {
-    // for (let i = this.currentItems; i < this.maxItems; i++)
-    do {
+    for (this.currentItems; this.currentItems < this.maxItems; this.currentItems++) {
       if (this.currentItems % 15 === 0) {
         this.ol.insertAdjacentHTML(
           'beforeend',
@@ -46,13 +45,12 @@ const fizzbuzz = {
           `<li>${this.currentItems}</li>`
         );
       }
-      this.currentItems++;
-    } while (this.currentItems < this.maxItems);
+    }
   },
 
   init() {
-    document.documentElement.classList.add('js-enabled'), this.variables();
-    this.olCreation();
+    document.documentElement.classList.add('js-enabled'), this.initConst();
+    this.createList();
     this.fizzbuzz();
     this.infiniteScroll();
   },
