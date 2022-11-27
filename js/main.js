@@ -3,7 +3,7 @@
 const fizzbuzz = {
   variables() {
     this.ol = document.createElement('ol');
-    this.currentItems = 0;
+    this.currentItems = 1;
     this.maxItems = 101;
   },
 
@@ -16,6 +16,7 @@ const fizzbuzz = {
   infiniteScroll() {
     window.addEventListener('scroll', e => {
       if (window.innerHeight + window.scrollY >= document.body.scrollHeight) {
+        this.maxItems += 10;
         this.fizzbuzz();
       }
     });
@@ -24,7 +25,6 @@ const fizzbuzz = {
   fizzbuzz() {
     // for (let i = this.currentItems; i < this.maxItems; i++)
     do {
-      this.currentItems++;
       if (this.currentItems % 15 === 0) {
         this.ol.insertAdjacentHTML(
           'beforeend',
@@ -41,8 +41,12 @@ const fizzbuzz = {
           `<li class="fizz">FI<i>zz</i></li>`
         );
       } else {
-        this.ol.insertAdjacentHTML('beforeend', `<li>${this.currentItems}</li>`);
+        this.ol.insertAdjacentHTML(
+          'beforeend',
+          `<li>${this.currentItems}</li>`
+        );
       }
+      this.currentItems++;
     } while (this.currentItems < this.maxItems);
   },
 
