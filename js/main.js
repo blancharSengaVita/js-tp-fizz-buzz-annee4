@@ -1,5 +1,3 @@
-// const list = document.getElementById('fizzbuzz')
-
 const fizzbuzz = {
   initConst() {
     this.ol = document.createElement('ol');
@@ -23,7 +21,12 @@ const fizzbuzz = {
   },
 
   fizzbuzz() {
-    for (this.currentItems; this.currentItems < this.maxItems; this.currentItems++) {
+    for (
+      this.currentItems;
+      this.currentItems < this.maxItems;
+      // eslint-disable-next-line no-plusplus
+      this.currentItems++
+    ) {
       if (this.currentItems % 15 === 0) {
         this.ol.insertAdjacentHTML(
           'beforeend',
@@ -49,7 +52,8 @@ const fizzbuzz = {
   },
 
   init() {
-    document.documentElement.classList.add('js-enabled'), this.initConst();
+    document.documentElement.classList.add('js-enabled');
+    this.initConst();
     this.createList();
     this.fizzbuzz();
     this.infiniteScroll();
